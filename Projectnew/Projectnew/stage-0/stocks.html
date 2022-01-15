@@ -1,0 +1,47 @@
+package lib;
+
+
+import java.io.BufferedReader;  
+	import java.io.FileReader;  
+	import java.io.IOException; 
+	import java.util.*; 
+	public class ReadCSV 
+	
+	{  
+		
+	public static void main(String[] args)   
+	{ 
+	int i=0;	
+	String line = "";  
+	String splitBy = ",";  
+	String splitby = "-"; 
+	Library[] l=new Library[12];
+	try     
+	{  
+	//parsing a CSV file into BufferedReader class constructor  
+	BufferedReader br = new BufferedReader(new FileReader("C:\\Users\\arvap\\eclipse-workspace\\Project\\src\\lib\\Library.csv"));  
+	while ((line = br.readLine()) != null && i<12)   //returns a Boolean value 
+	{  
+	
+		
+	String[] a = line.split(splitBy);    // use comma as separator  
+	
+	int num= Integer.parseInt(a[0]);
+	long phno= Long.parseLong(a[2]);
+	float x= Float.parseFloat(a[3]);
+	float y= Float.parseFloat(a[4]);
+	String[] bl = a[5].split(splitby);
+	List<String> list = Arrays.asList(bl);
+    
+		l[i]=new User(num,a[1],phno,x,y,list);
+	System.out.println(u[i]);
+	i+=1;
+	 
+	}  
+	}   
+	catch (IOException e)   
+	{  
+	e.printStackTrace();  
+	}  
+	}  
+	}
